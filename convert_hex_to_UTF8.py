@@ -8,6 +8,10 @@ import sys
 import re
 import os
 
+# ANSI color codes
+LIGHT_RED = '\033[91m'
+RESET = '\033[0m'
+
 # ==============================
 # Function to convert HEX to UTF8 string
 # ==============================
@@ -50,9 +54,9 @@ def process_hex_string(hex_input, output_file=None):
         if isinstance(result, tuple):
             decoded, msg = result
             if decoded is None:
-                print(f"Error: {msg}", file=sys.stderr)
+                print(f"{LIGHT_RED}Error: {msg}{RESET}", file=sys.stderr)
                 if "non-hexadecimal number found in fromhex() arg at position 0" in msg:
-                    print("\nTip: Did you use single quotes? On Windows, use single quotes '$HEX[...]' to prevent shell interpretation of the $ character.", file=sys.stderr)
+                    print(f"\n{LIGHT_RED}Tip: Did you use single quotes? On Windows, use single quotes '$HEX[...]' to prevent shell interpretation of the $ character.{RESET}", file=sys.stderr)
                 sys.exit(1)
             else:
                 result = decoded
@@ -66,9 +70,9 @@ def process_hex_string(hex_input, output_file=None):
         if isinstance(result, tuple):
             decoded, msg = result
             if decoded is None:
-                print(f"Error: {msg}", file=sys.stderr)
+                print(f"{LIGHT_RED}Error: {msg}{RESET}", file=sys.stderr)
                 if "non-hexadecimal number found in fromhex() arg at position 0" in msg:
-                    print("\nTip: Did you use single quotes? On Windows, use single quotes '$HEX[...]' to prevent shell interpretation of the $ character.", file=sys.stderr)
+                    print(f"\n{LIGHT_RED}Tip: Did you use single quotes? On Windows, use single quotes '$HEX[...]' to prevent shell interpretation of the $ character.{RESET}", file=sys.stderr)
                 sys.exit(1)
             else:
                 result = decoded
@@ -83,7 +87,7 @@ def process_hex_string(hex_input, output_file=None):
                 print(f"\n{warning_msg}")
             print(f"Decoded output written to '{output_file}'")
         except Exception as e:
-            print(f"Error writing to output file: {e}", file=sys.stderr)
+            print(f"{LIGHT_RED}Error writing to output file: {e}{RESET}", file=sys.stderr)
             sys.exit(1)
     else:
         if warning_msg:
@@ -137,13 +141,13 @@ def process_file(input_file, output_file):
         print(f"\nDecoded output written to '{output_file}'")
 
     except FileNotFoundError:
-        print(f"Error: Input file '{input_file}' not found.", file=sys.stderr)
+        print(f"{LIGHT_RED}Error: Input file '{input_file}' not found.{RESET}", file=sys.stderr)
         sys.exit(1)
     except PermissionError as e:
-        print(f"Error: Permission denied - {e}", file=sys.stderr)
+        print(f"{LIGHT_RED}Error: Permission denied - {e}{RESET}", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
-        print(f"Error: {e}", file=sys.stderr)
+        print(f"{LIGHT_RED}Error: {e}{RESET}", file=sys.stderr)
         sys.exit(1)
 
 # ==============================
@@ -179,7 +183,7 @@ def main():
     if os.path.isfile(args.input):
         # Input is a file - require output file
         if not args.output:
-            print("Error: --output is required when processing a file.", file=sys.stderr)
+            print(f"{LIGHT_RED}Error: --output is required when processing a file.{RESET}", file=sys.stderr)
             sys.exit(1)
         process_file(args.input, args.output)
     else:
