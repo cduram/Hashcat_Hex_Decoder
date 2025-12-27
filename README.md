@@ -35,7 +35,7 @@ python hashcat_hex_decoder.py --input <INPUT> [--output <OUTPUT>]
 - `--input` or `-i`: (Required) Input file path OR hex string to decode
 - `--output` or `-o`: (Optional for direct mode, Required for file mode) Output file path for decoded text
 
-### File Mode
+### File Input
 
 Process an entire potfile with multiple hex-encoded lines:
 
@@ -57,7 +57,7 @@ normalpassword123
 Passwörd
 ```
 
-### Direct Mode
+### Command Line
 
 Decode a single hex string and display the result in the console:
 
