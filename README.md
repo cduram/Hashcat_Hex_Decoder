@@ -33,7 +33,7 @@ python hashcat_hex_decoder.py --input <INPUT> [--output <OUTPUT>]
 ### Command-Line Arguments
 
 - `--input` or `-i`: (Required) Input file path OR hex string to decode
-- `--output` or `-o`: (Optional for direct mode, Required for file mode) Output file path for decoded text
+- `--output` or `-o`: (Optional for command line, Required for files) Output file path for decoded text
 
 ### File Input
 
