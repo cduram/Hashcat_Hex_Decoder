@@ -51,6 +51,8 @@ def process_hex_string(hex_input, output_file=None):
             decoded, msg = result
             if decoded is None:
                 print(f"Error: {msg}", file=sys.stderr)
+                if "non-hexadecimal number found in fromhex() arg at position 0" in msg:
+                    print("\nTip: Did you use single quotes? On Windows, use single quotes '$HEX[...]' to prevent shell interpretation of the $ character.", file=sys.stderr)
                 sys.exit(1)
             else:
                 result = decoded
@@ -65,6 +67,8 @@ def process_hex_string(hex_input, output_file=None):
             decoded, msg = result
             if decoded is None:
                 print(f"Error: {msg}", file=sys.stderr)
+                if "non-hexadecimal number found in fromhex() arg at position 0" in msg:
+                    print("\nTip: Did you use single quotes? On Windows, use single quotes '$HEX[...]' to prevent shell interpretation of the $ character.", file=sys.stderr)
                 sys.exit(1)
             else:
                 result = decoded
