@@ -24,12 +24,6 @@ Convert $HEX[...] output in the potfile that Hashcat produces due to the passwor
 python hashcat_hex_decoder.py --input <INPUT> [--output <OUTPUT>]
 ```
 
-Or using the alternative script name:
-
-```bash
-python hashcat_hex_decoder.py --input <INPUT> [--output <OUTPUT>]
-```
-
 ### Command-Line Arguments
 
 - `--input` or `-i`: (Required) Input file path OR hex string to decode
