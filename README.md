@@ -108,14 +108,6 @@ python hashcat_hex_decoder.py -i hashcat.potfile -o decoded_passwords.txt
 python hashcat_hex_decoder.py -i "5061737377c3b67264" -o password.txt
 ```
 
-## Error Handling
-
-The tool provides clear, color-coded error messages for common issues:
-
-- **Invalid hex format**: Non-hexadecimal characters in the input
-- **File not found**: Input file doesn't exist
-- **UTF-8 decode errors**: Invalid UTF-8 sequences (automatically falls back to latin-1)
-
 ## Requirements
 
 - Python 3.x
