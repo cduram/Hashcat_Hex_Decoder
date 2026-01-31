@@ -114,4 +114,4 @@ python hashcat_hex_decoder.py -i "5061737377c3b67264" -o password.txt
 ## Requirements
 
 - Python 3.x
-- No external dependencies (uses only standard library modules)
+- Uses only standard library modules
